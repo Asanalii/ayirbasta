@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="FontStyle.Black">
+        <item name="fontFamily">@font/inter_black</item>
+    </style>
+    <style name="FontStyle.ExtraBold">
+        <item name="fontFamily">@font/inter_extra_bold</item>
+    </style>
+    <style name="FontStyle.Bold">
+        <item name="fontFamily">@font/inter_bold</item>
+    </style>
+    <style name="FontStyle.SemiBold">
+        <item name="fontFamily">@font/inter_semi_bold</item>
+    </style>
+    <style name="FontStyle.Medium">
+        <item name="fontFamily">@font/inter_medium</item>
+    </style>
+    <style name="FontStyle">
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+    <style name="FontStyle.Light">
+        <item name="fontFamily">@font/inter_light</item>
+    </style>
+
+    <style name="FontStyleLilita">
+        <item name="fontFamily">@font/lilita_one_regular</item>
+    </style>
+
+
+
+    <style name="H_9" parent="FontStyle">
+        <item name="android:textSize">9sp</item>
+    </style>
+
+    <style name="H_11" parent="FontStyle">
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="H_12" parent="FontStyle">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="H_14" parent="FontStyle">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="H_14_light" parent="FontStyle.Light">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="H_15" parent="FontStyle">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="H_15_medium" parent="FontStyle.Medium">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+
+    <style name="H_16" parent="FontStyle">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="H_16_Semi_bold" parent="FontStyle.SemiBold">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="H_18" parent="FontStyle">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="H_18_medium" parent="FontStyle.Medium">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="H_20" parent="FontStyle">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="H_20_bold" parent="FontStyle.Bold">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+
+    <style name="H_24" parent="FontStyle">
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="H_24_bold" parent="FontStyle.Bold">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="H_28" parent="FontStyleLilita">
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="H_32_Semi_bold" parent="FontStyle.SemiBold">
+        <item name="android:textSize">32sp</item>
+    </style>
+
+
+</resources>
