@@ -10,6 +10,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.progressBar.progress = 30
+//        binding.progressBar.progress = 30
     }
 }

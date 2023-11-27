@@ -5,4 +5,8 @@
     <color name="background">#0B0B0E</color>
     <color name="light_color">#E2DAEC</color>
     <color name="light_gray">#726C7D</color>
+    <color name="active_menu">#E9525F</color>
+    <color name="light_red">#EF7D85</color>
+    <color name="dark_gray">#14151A</color>
+    <color name="primary_color">#C0325D</color>
 </resources>

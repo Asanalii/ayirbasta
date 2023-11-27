@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
+    android:padding="30dp">
+
+    <TextView
+        android:id="@+id/item_pictures"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/item_pictures"
+        style="@style/H_20_bold"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/upload_pic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/upload_a_picture_for_your_item"
+        style="@style/H_14_light"
+        android:textColor="@color/light_color"
+        app:layout_constraintTop_toBottomOf="@id/item_pictures"/>
+
+    <View
+        android:id="@+id/line"
+        app:layout_constraintTop_toBottomOf="@id/upload_pic"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/dark_gray"
+        android:layout_marginTop="35dp"/>
+
+    <TextView
+        android:id="@+id/basic_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Basic information"
+        style="@style/H_20_bold"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/line"
+        android:layout_marginTop="35dp"/>
+
+
+    <TextView
+        android:id="@+id/tell_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tell us more about your item"
+        style="@style/H_14_light"
+        android:textColor="@color/light_color"
+        app:layout_constraintTop_toBottomOf="@id/basic_info"/>
+
+
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Item's Name"
+        style="@style/H_14_light"
+        android:textColor="@color/light_color"
+        app:layout_constraintTop_toBottomOf="@id/tell_more"
+        android:layout_marginTop="40dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_name"
+        app:boxStrokeColor="#1218E1"
+        app:boxStrokeWidth="2dp"
+        app:boxBackgroundColor="@color/white"
+        app:endIconMode="clear_text"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxCornerRadiusBottomEnd="15dp">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_view_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="Input your item's name"
+        android:inputType="phone"
+        android:imeOptions="actionNext" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/about_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="About your item"
+        style="@style/H_14_light"
+        android:textColor="@color/light_color"
+        app:layout_constraintTop_toBottomOf="@id/input_item_name"
+        android:layout_marginTop="25dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_item_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_item"
+        app:boxStrokeColor="#ff3333"
+        app:boxStrokeWidth="2dp"
+        app:endIconMode="clear_text"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxBackgroundColor="@color/white"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_view_item_about"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Tell us abour your item."
+            android:inputType="phone"
+            android:imeOptions="actionNext"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    
+    <com.google.android.material.button.MaterialButton
+        app:layout_constraintTop_toBottomOf="@id/input_item_about"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Add item"
+        android:backgroundTint="@color/primary_color"
+        style="@style/H_9"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Ayirbasta</string>
     <string name="skip">Skip</string>
+    <string name="home">Home</string>
+    <string name="trades">Trades</string>
+    <string name="items">Items</string>
+    <string name="welcome_to_ayirbasta">Welcome to Ayirbasta!</string>
+    <string name="back">back</string>
+    <string name="item_pictures">Item pictures:</string>
+    <string name="upload_a_picture_for_your_item">Upload a picture for your item.</string>
 </resources>
