@@ -6,6 +6,7 @@
     android:background="@color/background">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,6 +23,16 @@
             app:titleTextColor="@color/white"/>
 
     </com.google.android.material.appbar.AppBarLayout>
+
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="hello_world"
+        style="@style/H_32_Semi_bold"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
