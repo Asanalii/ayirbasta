@@ -2,10 +2,15 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/itemFragment">
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.ayirbasta.fragments.LoginFragment"
         android:label="LoginFragment" />
+
+    <fragment
+        android:id="@+id/itemFragment"
+        android:name="com.example.ayirbasta.fragments.ItemFragment"
+        android:label="ItemFragment" />
 </navigation>
