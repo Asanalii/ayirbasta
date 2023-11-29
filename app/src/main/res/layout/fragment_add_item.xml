@@ -6,6 +6,8 @@
     android:background="@color/background"
     android:padding="30dp">
 
+
+
     <TextView
         android:id="@+id/item_pictures"
         android:layout_width="match_parent"
@@ -24,9 +26,66 @@
         android:textColor="@color/light_color"
         app:layout_constraintTop_toBottomOf="@id/item_pictures"/>
 
+    <LinearLayout
+        android:id="@+id/item_list_pic"
+        app:layout_constraintTop_toBottomOf="@id/upload_pic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            app:cardBackgroundColor="@color/background"
+            app:strokeColor="@color/light_red"
+            android:layout_marginEnd="20dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/add_circle"
+                android:layout_gravity="center"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            app:cardBackgroundColor="@color/background"
+            app:strokeColor="@color/light_red"
+            android:layout_marginEnd="20dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/add_circle"
+                android:layout_gravity="center"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            app:cardBackgroundColor="@color/background"
+            app:strokeColor="@color/light_red"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/add_circle"
+                android:layout_gravity="center"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
     <View
         android:id="@+id/line"
-        app:layout_constraintTop_toBottomOf="@id/upload_pic"
+        app:layout_constraintTop_toBottomOf="@id/item_list_pic"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/dark_gray"

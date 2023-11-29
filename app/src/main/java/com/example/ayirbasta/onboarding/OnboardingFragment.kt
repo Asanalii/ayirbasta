@@ -1,4 +1,4 @@
-package com.example.ayirbasta
+package com.example.ayirbasta.onboarding
 
 import android.os.Bundle
 import android.view.LayoutInflater

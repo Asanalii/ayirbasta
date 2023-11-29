@@ -27,10 +27,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
-        <activity android:name=".OnboardingActivity"
+        <activity android:name=".onboarding.OnboardingActivity"
             android:exported="true">
+
+
+
         </activity>
     </application>
 

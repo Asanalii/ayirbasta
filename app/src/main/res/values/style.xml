@@ -46,6 +46,9 @@
     <style name="H_14_light" parent="FontStyle.Light">
         <item name="android:textSize">14sp</item>
     </style>
+    <style name="H_14_medium" parent="FontStyle.Medium">
+        <item name="android:textSize">14sp</item>
+    </style>
 
     <style name="H_15" parent="FontStyle">
         <item name="android:textSize">15sp</item>

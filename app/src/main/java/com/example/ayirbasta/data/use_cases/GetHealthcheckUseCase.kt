@@ -13,5 +13,5 @@ class GetHealthcheckInteraction(
     override suspend fun execute(): HealthcheckResponse? {
         return repo.getHealthcheck()
     }
-
 }
+

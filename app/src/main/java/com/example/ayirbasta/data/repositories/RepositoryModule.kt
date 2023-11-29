@@ -13,5 +13,7 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideWeatherRepository(api: MainApi): MainRepository = MainRepositoryImpl(api)
+//    fun provideWeatherRepository(api: MainApi): MainRepository = MainRepositoryImpl(api)
+    fun provideMainRepository(api: MainApi): MainRepository = MainRepositoryImpl(api)
+
 }

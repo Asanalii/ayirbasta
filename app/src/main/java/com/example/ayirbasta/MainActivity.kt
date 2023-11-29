@@ -10,15 +10,17 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {ActivityMainBinding.inflate(layoutInflater)}
-    private val viewModel: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        viewModel.getHealthcheck()
+        /*viewModel.getHealthcheck()
         viewModel.getHealthcheckLiveData.observe(this) {
-            binding.text.text = it.status
-        }
+            binding.text.text = it.systemInfo?.environment
+        }*/
+
+
+
 
 //        binding.progressBar.progress = 30
     }
