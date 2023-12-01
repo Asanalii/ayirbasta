@@ -22,4 +22,5 @@ object UseCaseModule {
     fun provideSignIn(repo: MainRepository): SignInUseCase =
         SignInInteraction(repo)
 
+
 }

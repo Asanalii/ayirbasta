@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.ayirbasta.databinding.FragmentOnboardingBinding
 
-class OnboardingFragment(private val pagesType: OnboardingPagesType?): Fragment() {
+class OnboardingFragment(private val pagesType: OnboardingPagesType?) : Fragment() {
     private lateinit var binding: FragmentOnboardingBinding
 
     override fun onCreateView(

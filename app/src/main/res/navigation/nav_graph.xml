@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/itemFragment">
+    app:startDestination="@id/previewItemFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -11,6 +11,11 @@
 
     <fragment
         android:id="@+id/itemFragment"
-        android:name="com.example.ayirbasta.fragments.ItemFragment"
+        android:name="com.example.ayirbasta.item.ItemFragment"
         android:label="ItemFragment" />
+
+    <fragment
+        android:id="@+id/previewItemFragment"
+        android:name="com.example.ayirbasta.item.preview.PreviewItemFragment"
+        android:label="PreviewItemFragment" />
 </navigation>

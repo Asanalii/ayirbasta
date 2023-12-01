@@ -8,8 +8,12 @@ import com.example.ayirbasta.adapters.ViewPagerAdapter
 import com.example.ayirbasta.databinding.ActivityOnboardingBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
-class OnboardingActivity: AppCompatActivity() {
-    private val binding: ActivityOnboardingBinding by lazy { ActivityOnboardingBinding.inflate(layoutInflater)}
+class OnboardingActivity : AppCompatActivity() {
+    private val binding: ActivityOnboardingBinding by lazy {
+        ActivityOnboardingBinding.inflate(
+            layoutInflater
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,15 +28,19 @@ class OnboardingActivity: AppCompatActivity() {
         binding.viewPager.adapter = adapter
         binding.viewPager.currentItem = 0
 
-        TabLayoutMediator(binding.bottomTab, binding.viewPager){tab, position ->
+        TabLayoutMediator(binding.bottomTab, binding.viewPager) { tab, position ->
             tab.view.isClickable = false
 
 
 
-            if(OnboardingPagesType.values()[position].ordinal == 2) {
-                binding.nextButton.setOnClickListener{
+            if (OnboardingPagesType.values()[position].ordinal == 2) {
+                binding.nextButton.setOnClickListener {
 //                    Toast.makeText(this, "the last page", Toast.LENGTH_SHORT).show()
-                    Toast.makeText(this, "${OnboardingPagesType.values()[position]}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this,
+                        "${OnboardingPagesType.values()[position]}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }.attach()

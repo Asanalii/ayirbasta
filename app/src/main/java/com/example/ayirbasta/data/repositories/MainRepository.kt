@@ -1,6 +1,8 @@
 package com.example.ayirbasta.data.repositories
 
+import com.example.ayirbasta.data.DTO.CreateItemParam
 import com.example.ayirbasta.data.DTO.SignInParam
+import com.example.ayirbasta.data.network.CreateItemResponse
 import com.example.ayirbasta.data.network.HealthcheckResponse
 import com.example.ayirbasta.data.network.MainApi
 import com.example.ayirbasta.data.network.MainApiError
@@ -15,6 +17,8 @@ import javax.inject.Singleton
 interface MainRepository {
     suspend fun getHealthcheck(): HealthcheckResponse?
     suspend fun signIn(body: SignInParam): SignInResponse?
+
+    suspend fun createItem(body: CreateItemParam): CreateItemResponse?
 }
 
 class MainRepositoryImpl @Inject constructor(
@@ -36,6 +40,16 @@ class MainRepositoryImpl @Inject constructor(
 
         else throw Exception(response.errorBody().getErrorMessage())
     }
+
+    override suspend fun createItem(body: CreateItemParam): CreateItemResponse? {
+        val response = api.createItem(body)
+
+        if(response.isSuccessful) return response.body()
+
+        else throw Exception(response.errorBody().getErrorMessage())
+    }
+
+
 }
 
 fun ResponseBody?.getErrorMessage():String? {

@@ -1,51 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView app:layout_constraintTop_toTopOf="parent"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:strokeColor="@color/primary_color"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:backgroundTint="@color/background">
-        <LinearLayout
+    android:backgroundTint="@color/background"
+    app:layout_constraintTop_toTopOf="parent"
+    app:strokeColor="@color/primary_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center">
+            android:layout_height="wrap_content">
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/red_circle"
-                    android:layout_gravity="center"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/menu_bag"
-                    android:layout_gravity="center"/>
-            </FrameLayout>
-            
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="You still haven't added an item to change."
-                android:gravity="center"
-                style="@style/H_18_medium"
-                android:textColor="@color/white"
-                android:paddingHorizontal="20dp"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:layout_marginTop="60dp"
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add new item"
-                android:backgroundTint="@color/primary_color"
-                android:paddingHorizontal="30dp"
-                style="@style/H_9"
-                android:textColor="@color/white"
-                android:layout_gravity="center" />
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+                android:layout_gravity="center"
+                android:src="@drawable/red_circle" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/menu_bag" />
+        </FrameLayout>
+
+        <TextView
+            style="@style/H_18_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingHorizontal="20dp"
+            android:text="You still haven't added an item to change."
+            android:textColor="@color/white" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/H_9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:backgroundTint="@color/primary_color"
+            android:paddingHorizontal="30dp"
+            android:text="Add new item"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
 
