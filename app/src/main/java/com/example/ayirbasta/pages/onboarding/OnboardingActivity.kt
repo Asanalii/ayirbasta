@@ -1,4 +1,4 @@
-package com.example.ayirbasta.onboarding
+package com.example.ayirbasta.pages.onboarding
 
 import android.os.Bundle
 import android.widget.Toast

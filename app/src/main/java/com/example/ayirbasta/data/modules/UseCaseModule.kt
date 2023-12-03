@@ -1,6 +1,8 @@
 package com.example.ayirbasta.data.modules
 
 import com.example.ayirbasta.data.repositories.MainRepository
+import com.example.ayirbasta.data.use_cases.CreateItemInteraction
+import com.example.ayirbasta.data.use_cases.CreateItemUseCase
 import com.example.ayirbasta.data.use_cases.GetHealthcheckInteraction
 import com.example.ayirbasta.data.use_cases.GetHealthcheckUseCase
 import com.example.ayirbasta.data.use_cases.SignInInteraction
@@ -22,5 +24,7 @@ object UseCaseModule {
     fun provideSignIn(repo: MainRepository): SignInUseCase =
         SignInInteraction(repo)
 
-
+    @Provides
+    fun createItem(repo: MainRepository): CreateItemUseCase =
+        CreateItemInteraction(repo)
 }

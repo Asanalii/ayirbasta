@@ -1,29 +1,31 @@
-package com.example.ayirbasta.item.preview
+package com.example.ayirbasta.pages.onboarding
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.ayirbasta.databinding.FragmentVpItemPreviewBinding
+import com.example.ayirbasta.databinding.FragmentOnboardingBinding
 
-class PreviewItemVpFragment(private val picturesType: ItemPicturesType?): Fragment() {
-    private lateinit var binding: FragmentVpItemPreviewBinding
+class OnboardingFragment(private val pagesType: OnboardingPagesType?) : Fragment() {
+    private lateinit var binding: FragmentOnboardingBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentVpItemPreviewBinding.inflate(inflater, container, false)
+        binding = FragmentOnboardingBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        picturesType?.let {
+        pagesType?.let {
             binding.pic.setImageResource(it.image)
+            binding.descriptionText.text = it.description
+            binding.mainText.text = it.mainText
         }
     }
 }

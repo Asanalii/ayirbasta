@@ -1,4 +1,4 @@
-package com.example.ayirbasta.item.adding
+package com.example.ayirbasta.pages.item.adding
 
 import androidx.lifecycle.MutableLiveData
 import com.example.ayirbasta.base.BaseViewModel
@@ -17,10 +17,10 @@ class ItemAddViewModel @Inject constructor(
     private val _createItemLiveData = MutableLiveData<CreateItemResponse>()
     val createItemLiveData = _createItemLiveData
 
-    fun createItem(name: String, description: String){
+    fun createItem(name: String, description: String, images: ByteArray){
         launch(
             request = {
-                createItem.execute(name, description)
+                createItem.execute(name, description, images)
             },
             onSuccess = {
                 _createItemLiveData.postValue(it)

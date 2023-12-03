@@ -1,4 +1,4 @@
-package com.example.ayirbasta.item.preview
+package com.example.ayirbasta.pages.item.preview
 
 import androidx.annotation.DrawableRes
 import com.example.ayirbasta.R

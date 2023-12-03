@@ -8,8 +8,12 @@ import com.example.ayirbasta.data.network.MainApi
 import com.example.ayirbasta.data.network.MainApiError
 import com.example.ayirbasta.data.network.SignInResponse
 import com.google.gson.Gson
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.ResponseBody
 import java.lang.Exception
+import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -23,13 +27,12 @@ interface MainRepository {
 
 class MainRepositoryImpl @Inject constructor(
     private val api: MainApi
-): MainRepository {
+) : MainRepository {
     override suspend fun getHealthcheck(): HealthcheckResponse? {
         val response = api.getHealthcheck()
 
 
         if (response.isSuccessful) return response.body()
-
         else throw Exception(response.errorBody().getErrorMessage())
     }
 
@@ -37,25 +40,36 @@ class MainRepositoryImpl @Inject constructor(
         val response = api.signIn(body)
 
         if (response.isSuccessful) return response.body()
-
         else throw Exception(response.errorBody().getErrorMessage())
     }
 
     override suspend fun createItem(body: CreateItemParam): CreateItemResponse? {
-        val response = api.createItem(body)
+        val requestFile =
+            body.images.toRequestBody(
+                "multipart/form-data".toMediaTypeOrNull(),
+                0,
+                body.images.size
+            )
+        val requestImagesBody =
+            MultipartBody.Part.createFormData("images", UUID.randomUUID().toString(), requestFile)
 
-        if(response.isSuccessful) return response.body()
+        val response = api.createItem(
+            requestImagesBody,
+            body.name.toRequestBody("name".toMediaTypeOrNull()),
+            body.description.toRequestBody("description".toMediaTypeOrNull())
+        )
 
+        if (response.isSuccessful) return response.body()
         else throw Exception(response.errorBody().getErrorMessage())
     }
 
 
 }
 
-fun ResponseBody?.getErrorMessage():String? {
-    return try{
+fun ResponseBody?.getErrorMessage(): String? {
+    return try {
         Gson().fromJson(this?.charStream(), MainApiError::class.java)?.error?.message
-    } catch (e: Exception){
+    } catch (e: Exception) {
         e.message.orEmpty()
     }
 }

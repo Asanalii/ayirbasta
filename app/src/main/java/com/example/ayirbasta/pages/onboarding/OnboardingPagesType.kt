@@ -1,4 +1,4 @@
-package com.example.ayirbasta.onboarding
+package com.example.ayirbasta.pages.onboarding
 
 import androidx.annotation.DrawableRes
 import com.example.ayirbasta.R

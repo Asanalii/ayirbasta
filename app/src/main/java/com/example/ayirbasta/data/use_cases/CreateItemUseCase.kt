@@ -4,11 +4,12 @@ import com.example.ayirbasta.data.DTO.CreateItemParam
 import com.example.ayirbasta.data.network.CreateItemResponse
 import com.example.ayirbasta.data.repositories.MainRepository
 
+
 interface CreateItemUseCase {
     suspend fun execute(
         name: String,
         description: String,
-//        images: List<String>
+        images: ByteArray
     ): CreateItemResponse?
 }
 
@@ -18,8 +19,8 @@ class CreateItemInteraction(
     override suspend fun execute(
         name: String,
         description: String,
-//        images: List<String>
+        images: ByteArray
     ): CreateItemResponse? {
-        return repo.createItem(CreateItemParam(name,description))
+        return repo.createItem(CreateItemParam(name,description,images))
     }
 }

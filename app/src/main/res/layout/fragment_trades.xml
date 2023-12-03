@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:backgroundTint="@color/background"
-    app:layout_constraintTop_toTopOf="parent"
-    app:strokeColor="@color/primary_color">
+    android:orientation="vertical"
+    android:background="@color/background">
+
 
     <LinearLayout
         android:id="@+id/list_empty"
@@ -14,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="gone"
+        >
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/menu_bag" />
+                android:src="@drawable/menu_swap" />
         </FrameLayout>
 
         <TextView
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingHorizontal="20dp"
-            android:text="You still haven't added an item to change."
+            android:text="You still haven't trade offers."
             android:textColor="@color/white" />
 
         <com.google.android.material.button.MaterialButton
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:backgroundTint="@color/primary_color"
             android:paddingHorizontal="30dp"
             android:text="Add new item"
@@ -55,12 +55,11 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/item_list"
+        android:id="@+id/trades_list"
+        tools:itemCount="2"
+        tools:listitem="@layout/item_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/item_trade"
-        tools:itemCount="2"
-         />
+        />
 
-</com.google.android.material.card.MaterialCardView>
-
+</LinearLayout>

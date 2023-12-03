@@ -2,20 +2,28 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/previewItemFragment">
+    app:startDestination="@id/tradesFragment">
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.ayirbasta.fragments.LoginFragment"
+        android:name="com.example.ayirbasta.pages.login.LoginFragment"
         android:label="LoginFragment" />
 
     <fragment
         android:id="@+id/itemFragment"
-        android:name="com.example.ayirbasta.item.ItemFragment"
+        android:name="com.example.ayirbasta.pages.item.ItemFragment"
         android:label="ItemFragment" />
 
     <fragment
         android:id="@+id/previewItemFragment"
-        android:name="com.example.ayirbasta.item.preview.PreviewItemFragment"
+        android:name="com.example.ayirbasta.pages.item.preview.PreviewItemFragment"
         android:label="PreviewItemFragment" />
+
+
+    <fragment
+        android:id="@+id/tradesFragment"
+        android:name="com.example.ayirbasta.pages.trades.TradesFragment"
+        android:label="TradesFragment" />
+
+
 </navigation>

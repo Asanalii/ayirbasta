@@ -17,7 +17,10 @@ import javax.inject.Singleton
 @Module
 object NetworkModule {
     @Provides
-    fun mainUrl() = "http://192.168.142.210:8080/v1/"
+//    fun mainUrl() = "http://192.168.142.210:8080/v1/"
+    fun mainUrl() = "http://192.168.0.13:8080/v1/"
+
+
 
     @Provides
     @Singleton
@@ -31,7 +34,7 @@ object NetworkModule {
 
     @Provides
     fun getMainApi(retrofit: Retrofit): MainApi {
-        return retrofit.create(MainApi::class.java)
+        return retrofit.create(MainApi:: class.java)
     }
 
     @Provides

@@ -13,5 +13,5 @@ data class ItemInfo(
     val name: String? = null,
     val description: String? = null,
     val status: String? = null,
-//    val images: Array<String>? = null
+    val images: MutableList<String>? = null
 )

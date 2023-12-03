@@ -1,4 +1,4 @@
-package com.example.ayirbasta.item.preview
+package com.example.ayirbasta.pages.item.preview
 
 import android.os.Bundle
 import android.view.LayoutInflater
