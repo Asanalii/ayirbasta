@@ -9,10 +9,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ayirbasta.base.BaseItemViewHolder
 import com.example.ayirbasta.base.BaseViewHolder
+import com.example.ayirbasta.data.network.ItemInfo
 import com.example.ayirbasta.databinding.ItemItemBinding
+import com.example.ayirbasta.pages.item.api.ItemsOfUserResponse
 
 class ItemAdapter(
-    private val items: List<ItemDTO>
+    private val items: List<ItemInfo>
 ): RecyclerView.Adapter<BaseItemViewHolder<*>>() {
     var itemClick: ((ItemDTO, FragmentNavigator.Extras)-> Unit)? = null
 
@@ -47,7 +49,7 @@ class ItemAdapter(
         private val itemClick: ((ItemDTO, FragmentNavigator.Extras) -> Unit)?,
     ) : BaseItemViewHolder<ItemItemBinding>(binding) {
 
-        override fun bindView(item: ItemDTO) {
+        override fun bindView(item: ItemInfo) {
 
 //            binding.image.setImageResource(item.images.get(0))
             binding.title.text = item.name

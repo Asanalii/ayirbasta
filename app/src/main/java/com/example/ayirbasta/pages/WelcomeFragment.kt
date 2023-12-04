@@ -1,42 +1,40 @@
-package com.example.ayirbasta.pages.login
+package com.example.ayirbasta.pages
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.ayirbasta.data.MainViewModel
-import com.example.ayirbasta.databinding.FragmentLoginBinding
-import dagger.hilt.android.AndroidEntryPoint
+import com.example.ayirbasta.databinding.FragmentWelcomeBinding
 
-@AndroidEntryPoint
-class LoginFragment: Fragment() {
-    private val binding by lazy { FragmentLoginBinding.inflate(layoutInflater) }
-    private val viewModel: LoginViewModel by viewModels()
+class WelcomeFragment: Fragment() {
+    private lateinit var binding: FragmentWelcomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentWelcomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         binding.loginButton.setOnClickListener {
-            viewModel.signIn(binding.emailInput.text.toString(), binding.passwordInput.text.toString())
-
             findNavController().navigate(
-                LoginFragmentDirections.actionLoginFragmentToItemFragment()
+                WelcomeFragmentDirections.actionWelcomeFragmentToLoginFragment()
             )
         }
 
+        binding.signUp.setOnClickListener {
+            findNavController().navigate(
+                WelcomeFragmentDirections.actionWelcomeFragmentToRegisterFragment()
+            )
+        }
 
     }
+
 }

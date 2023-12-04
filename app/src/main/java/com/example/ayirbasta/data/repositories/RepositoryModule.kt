@@ -1,5 +1,6 @@
 package com.example.ayirbasta.data.repositories
 
+import com.example.app_study_hilt.data.preferences.SharedPreferencesUtils
 import com.example.ayirbasta.data.network.MainApi
 import dagger.Module
 import dagger.Provides
@@ -13,7 +14,7 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-//    fun provideWeatherRepository(api: MainApi): MainRepository = MainRepositoryImpl(api)
-    fun provideMainRepository(api: MainApi): MainRepository = MainRepositoryImpl(api)
+    fun provideMainRepository(api: MainApi, preferences: SharedPreferencesUtils): MainRepository =
+        MainRepositoryImpl(api, preferences)
 
 }

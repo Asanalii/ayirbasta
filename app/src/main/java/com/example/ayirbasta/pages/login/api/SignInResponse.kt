@@ -1,4 +1,4 @@
-package com.example.ayirbasta.data.network
+package com.example.ayirbasta.pages.login.api
 
 import com.google.gson.annotations.SerializedName
 

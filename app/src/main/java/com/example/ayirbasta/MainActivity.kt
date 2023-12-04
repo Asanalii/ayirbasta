@@ -3,28 +3,43 @@ package com.example.ayirbasta
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isVisible
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import com.example.app_study_hilt.data.preferences.Preferences
+import com.example.app_study_hilt.data.preferences.SharedPreferencesUtils
 import com.example.ayirbasta.databinding.ActivityMainBinding
 import com.example.ayirbasta.extensions.isBottomNavVisible
+import com.example.ayirbasta.pages.WelcomeFragment
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+
+    @Inject lateinit var preferences: SharedPreferencesUtils
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-        /*viewModel.getHealthcheck()
-        viewModel.getHealthcheckLiveData.observe(this) {
-            binding.text.text = it.systemInfo?.environment
-        }*/
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
         val navController = navHostFragment.navController
+
+        val accessToken = preferences.getToken(Preferences.ACCESS_TOKEN)
+        if (accessToken.isEmpty()) {
+            // No access token found, user is not logged in
+
+            navController.navigate(R.id.welcomeFragment)
+        } else {
+            // Access token found, user is logged in
+            // Proceed with showing MainActivity content
+
+            navController.navigate(R.id.itemFragment)
+        }
+
+
 
         navController.addOnDestinationChangedListener{ _, destination, _ ->
 

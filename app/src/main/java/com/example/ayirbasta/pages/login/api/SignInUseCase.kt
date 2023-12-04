@@ -1,9 +1,8 @@
-package com.example.ayirbasta.data.use_cases
+package com.example.ayirbasta.pages.login.api
 
 import com.example.ayirbasta.data.DTO.SignInParam
-import com.example.ayirbasta.data.network.SignInResponse
 import com.example.ayirbasta.data.repositories.MainRepository
-import okhttp3.RequestBody
+
 
 interface SignInUseCase {
     suspend fun execute(email: String, password: String): SignInResponse?
@@ -12,9 +11,9 @@ interface SignInUseCase {
 
 class SignInInteraction(
     private val repo: MainRepository
-): SignInUseCase {
+) : SignInUseCase {
     override suspend fun execute(email: String, password: String): SignInResponse? {
-        return repo.signIn(SignInParam(email,password))
+        return repo.signIn(SignInParam(email, password))
     }
 }
 

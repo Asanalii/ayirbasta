@@ -3,21 +3,21 @@ package com.example.app_study_hilt.data.preferences
 import android.content.SharedPreferences
 
 interface SharedPreferencesUtils {
-    fun saveString(key: Preferences, value: String)
+    fun saveToken(key: Preferences, value: String)
     fun saveInt(key: Preferences,value: Int)
 
-    fun getString(key: Preferences): String
+    fun getToken(key: Preferences): String
     fun getInt(key: Preferences): Int
 }
 
 enum class Preferences{
-    NAME, PHONE
+    ACCESS_TOKEN
 }
 
 class SharedPreferencesUtilsImpl(
     private val preferences: SharedPreferences
 ): SharedPreferencesUtils {
-    override fun saveString(key: Preferences, value: String) {
+    override fun saveToken(key: Preferences, value: String) {
         val editor = preferences.edit()
         editor.putString(key.name, value)
         editor.apply()
@@ -29,7 +29,7 @@ class SharedPreferencesUtilsImpl(
         editor.apply()
     }
 
-    override fun getString(key: Preferences): String {
+    override fun getToken(key: Preferences): String {
         return preferences.getString(key.name, "").orEmpty()
     }
 
