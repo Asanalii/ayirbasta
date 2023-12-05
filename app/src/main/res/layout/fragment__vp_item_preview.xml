@@ -9,34 +9,18 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp">
+        >
 
         <ImageView
             android:id="@+id/pic"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_onboarding_welcome" />
-
-        <TextView
-            android:id="@+id/item_name"
-            style="@style/H_24_bold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="My item"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@id/item_description" />
+            android:src="@drawable/ic_onboarding_welcome"
+            android:transitionName="actionImage"
+            android:scaleType="centerCrop"
+            />
 
 
-        <TextView
-            android:id="@+id/item_description"
-            style="@style/H_14"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:text="Дескриптион ау мау туда сюда"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

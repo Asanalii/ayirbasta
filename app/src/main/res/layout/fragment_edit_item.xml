@@ -37,6 +37,7 @@
                     app:strokeColor="@color/light_red" />
 
                 <TextView
+                    android:id="@+id/preview"
                     style="@style/H_11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -67,11 +68,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
 
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="100dp"
-                android:layout_height="130dp"
+                android:layout_width="250dp"
+                android:layout_height="300dp"
                 android:layout_marginEnd="20dp"
                 app:cardBackgroundColor="@color/background"
                 app:strokeColor="@color/light_red">
@@ -80,13 +82,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@drawable/add_circle" />
+                    android:src="@drawable/add_circle"
+                    android:scaleType="centerCrop"/>
 
             </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="100dp"
-                android:layout_height="130dp"
+           <!-- <com.google.android.material.card.MaterialCardView
+                android:layout_width="90dp"
+                android:layout_height="125dp"
                 android:layout_marginEnd="20dp"
                 app:cardBackgroundColor="@color/background"
                 app:strokeColor="@color/light_red">
@@ -98,12 +101,11 @@
                     android:layout_gravity="center"
                     android:src="@drawable/add_circle" />
 
-            </com.google.android.material.card.MaterialCardView>
+            </com.google.android.material.card.MaterialCardView>-->
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="100dp"
-                android:layout_height="130dp"
-                android:layout_marginEnd="20dp"
+            <!--<com.google.android.material.card.MaterialCardView
+                android:layout_width="90dp"
+                android:layout_height="125dp"
                 app:cardBackgroundColor="@color/background"
                 app:strokeColor="@color/light_red">
 
@@ -114,7 +116,7 @@
                     android:layout_gravity="center"
                     android:src="@drawable/add_circle" />
 
-            </com.google.android.material.card.MaterialCardView>
+            </com.google.android.material.card.MaterialCardView>-->
 
 
         </LinearLayout>
@@ -203,13 +205,13 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/add_item"
-            style="@style/H_9"
+            style="@style/H_14_medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:backgroundTint="@color/primary_color"
-            android:text="Add item" />
+            android:text="Edit item" />
     </LinearLayout>
 
 

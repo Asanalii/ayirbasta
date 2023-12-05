@@ -5,6 +5,8 @@ import com.example.ayirbasta.data.use_cases.CreateItemInteraction
 import com.example.ayirbasta.data.use_cases.CreateItemUseCase
 import com.example.ayirbasta.data.use_cases.GetHealthcheckInteraction
 import com.example.ayirbasta.data.use_cases.GetHealthcheckUseCase
+import com.example.ayirbasta.pages.item.api.GetItemByIdInteraction
+import com.example.ayirbasta.pages.item.api.GetItemByIdUseCase
 import com.example.ayirbasta.pages.item.api.GetItemOfUserInteraction
 import com.example.ayirbasta.pages.item.api.GetItemOfUserUseCase
 import com.example.ayirbasta.pages.login.api.SignInInteraction
@@ -39,4 +41,9 @@ object UseCaseModule {
     @Provides
     fun provideGetItemsOfUser(repo: MainRepository): GetItemOfUserUseCase =
         GetItemOfUserInteraction(repo)
+
+    @Provides
+    fun provideGetItemById(repo: MainRepository): GetItemByIdUseCase  =
+        GetItemByIdInteraction(repo)
+
 }

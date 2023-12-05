@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:padding="30dp">
+   >
 
 
     <TextView
@@ -31,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
+        android:gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@id/upload_pic">
 
         <com.google.android.material.card.MaterialCardView

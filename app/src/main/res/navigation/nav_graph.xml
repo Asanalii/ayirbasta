@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.ayirbasta.pages.login.LoginFragment"
-        android:label="LoginFragment" >
+        android:label="LoginFragment">
         <action
             android:id="@+id/action_loginFragment_to_itemFragment"
             app:destination="@id/itemFragment" />
@@ -16,22 +16,40 @@
     <fragment
         android:id="@+id/itemFragment"
         android:name="com.example.ayirbasta.pages.item.ItemFragment"
-        android:label="ItemFragment" />
+        android:label="ItemFragment">
+        <action
+            android:id="@+id/action_itemFragment_to_previewItemFragment"
+            app:destination="@id/previewItemFragment" />
+        <action
+            android:id="@+id/action_itemFragment_to_itemAddFragment"
+            app:destination="@id/itemAddFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/previewItemFragment"
         android:name="com.example.ayirbasta.pages.item.preview.PreviewItemFragment"
-        android:label="PreviewItemFragment" />
+        android:label="PreviewItemFragment">
+
+        <argument
+            android:name="id"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_previewItemFragment_to_editItemFragment"
+            app:destination="@id/editItemFragment" />
+    </fragment>
 
 
     <fragment
         android:id="@+id/tradesFragment"
         android:name="com.example.ayirbasta.pages.trades.TradesFragment"
         android:label="TradesFragment" />
+
+
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.ayirbasta.pages.registration.RegisterFragment"
-        android:label="RegisterFragment" >
+        android:label="RegisterFragment">
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -40,10 +58,11 @@
         android:id="@+id/mainActivity"
         android:name="com.example.ayirbasta.MainActivity"
         android:label="MainActivity" />
+
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.example.ayirbasta.pages.WelcomeFragment"
-        android:label="WelcomeFragment" >
+        android:label="WelcomeFragment">
         <action
             android:id="@+id/action_welcomeFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -51,6 +70,24 @@
             android:id="@+id/action_welcomeFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/editItemFragment"
+        android:name="com.example.ayirbasta.pages.item.edit.EditItemFragment"
+        android:label="EditItemFragment">
+
+        <argument
+            android:name="id"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_editItemFragment_to_previewItemFragment"
+            app:destination="@id/previewItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemAddFragment"
+        android:name="com.example.ayirbasta.pages.item.adding.ItemAddFragment"
+        android:label="ItemAddFragment" />
 
 
 </navigation>

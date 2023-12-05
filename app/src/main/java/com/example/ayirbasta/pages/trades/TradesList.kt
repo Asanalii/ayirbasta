@@ -1,6 +1,5 @@
 package com.example.ayirbasta.pages.trades
 
-import com.example.ayirbasta.pages.item.ItemDTO
 
 object TradesList {
 

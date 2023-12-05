@@ -8,7 +8,6 @@ import com.example.ayirbasta.base.BaseTradesViewHolder
 import com.example.ayirbasta.base.BaseViewHolder
 import com.example.ayirbasta.databinding.ItemItemBinding
 import com.example.ayirbasta.databinding.ItemTradeBinding
-import com.example.ayirbasta.pages.item.ItemDTO
 
 class TradesAdapter(
     private val trades: List<TradesDTO>

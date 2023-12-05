@@ -27,6 +27,7 @@
                 android:padding="5dp">
 
                 <TextView
+                    android:id="@+id/edit"
                     style="@style/H_11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -65,16 +66,20 @@
             android:textColor="@color/light_color" />
 
 
-        <FrameLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            >
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
-                app:layout_constraintTop_toBottomOf="@id/skip" />
+                />
+
+
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/bottom_tab"
@@ -88,8 +93,31 @@
                 app:tabBackground="@drawable/tab_selector_item"
                 app:tabGravity="fill"
                 app:tabIndicatorHeight="0dp" />
-        </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <TextView
+            android:layout_marginTop="30dp"
+            android:id="@+id/item_name"
+            style="@style/H_24_bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="My item"
+            android:textColor="@color/white"
+            android:transitionName="actionTitle"
+            app:layout_constraintBottom_toTopOf="@id/item_description" />
+
+
+        <TextView
+            android:id="@+id/item_description"
+            style="@style/H_14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:text="Дескриптион ау мау туда сюда"
+            android:textColor="@color/white"
+            android:transitionName="actionDescription"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </LinearLayout>
 
 

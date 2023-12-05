@@ -1,5 +1,6 @@
 package com.example.ayirbasta.pages.item
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.ayirbasta.base.BaseViewModel
 import com.example.ayirbasta.pages.item.api.GetItemOfUserUseCase
@@ -8,19 +9,20 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class ItemViewModel @Inject constructor(
+class ItemListViewModel @Inject constructor(
     private val getItems: GetItemOfUserUseCase
 ) : BaseViewModel() {
 
     private val _getItemsLiveData = MutableLiveData<ItemsOfUserResponse>()
     val getItemsLiveData = _getItemsLiveData
 
-    fun getItem(){
+    fun getItem() {
         launch(
             request = {
                 getItems.execute()
             },
             onSuccess = {
+                Log.d("<<<","LiveData: $it")
                 _getItemsLiveData.postValue(it)
             }
         )

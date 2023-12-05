@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ayirbasta.databinding.FragmentTradesBinding
 import com.example.ayirbasta.decorations.OffsetDecoration
-import com.example.ayirbasta.pages.item.ItemAdapter
-import com.example.ayirbasta.pages.item.ItemList
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

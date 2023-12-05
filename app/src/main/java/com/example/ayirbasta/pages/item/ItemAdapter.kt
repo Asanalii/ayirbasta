@@ -1,33 +1,26 @@
 package com.example.ayirbasta.pages.item
 
+import android.graphics.BitmapFactory
+import android.util.Base64
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.DrawableRes
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ayirbasta.base.BaseItemViewHolder
 import com.example.ayirbasta.base.BaseViewHolder
 import com.example.ayirbasta.data.network.ItemInfo
 import com.example.ayirbasta.databinding.ItemItemBinding
+import com.example.ayirbasta.extensions.base64toPic
 import com.example.ayirbasta.pages.item.api.ItemsOfUserResponse
 
-class ItemAdapter(
-    private val items: List<ItemInfo>
-): RecyclerView.Adapter<BaseItemViewHolder<*>>() {
-    var itemClick: ((ItemDTO, FragmentNavigator.Extras)-> Unit)? = null
+class ItemAdapter : ListAdapter<ItemInfo, BaseItemViewHolder<*>>(ItemDiffUtils) {
+    var itemClick: ((ItemInfo, FragmentNavigator.Extras) -> Unit)? = null
 
-
-    /*object ItemDiffUtils : DiffUtil.ItemCallback<City>() {
-        override fun areItemsTheSame(oldItem: City, newItem: City): Boolean {
-            return oldItem.id == newItem.id
-        }
-
-        override fun areContentsTheSame(oldItem: City, newItem: City): Boolean {
-            return oldItem == newItem
-        }
-    }*/
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseItemViewHolder<*> {
         return ItemListViewHolder(
             ItemItemBinding.inflate(
@@ -36,48 +29,44 @@ class ItemAdapter(
         )
     }
 
-    override fun getItemCount(): Int = items.size
-
     override fun onBindViewHolder(holder: BaseItemViewHolder<*>, position: Int) {
-       holder.bindView(items[position])
-
-
+        holder.bindView(getItem(position))
     }
 
     class ItemListViewHolder(
         override val binding: ItemItemBinding,
-        private val itemClick: ((ItemDTO, FragmentNavigator.Extras) -> Unit)?,
+        private val itemClick: ((ItemInfo, FragmentNavigator.Extras) -> Unit)?,
     ) : BaseItemViewHolder<ItemItemBinding>(binding) {
 
         override fun bindView(item: ItemInfo) {
+            binding.title.text = item.description
 
-//            binding.image.setImageResource(item.images.get(0))
-            binding.title.text = item.name
+            binding.title.transitionName = item.name.toString()
 
-            /* binding.image.transitionName = item.id.toString()
-            binding.title.transitionName = item.name + item.id.toString()
+            val decodedImage = base64toPic(item.images.toString())
+            binding.image.setImageBitmap(decodedImage)
+
 
             val extras = FragmentNavigatorExtras(
-                binding.image to "actionImage",
-                binding.title to "actionTitle"
+                binding.title to "actionTitle",
             )
 
-            binding.image.setOnClickListener {
+            binding.button.setOnClickListener {
                 itemClick?.invoke(item,extras)
-            } */
+            }
 
         }
 
     }
 }
 
+object ItemDiffUtils : DiffUtil.ItemCallback<ItemInfo>() {
+    override fun areItemsTheSame(oldItem: ItemInfo, newItem: ItemInfo): Boolean {
+        return oldItem.id == newItem.id
+    }
 
+    override fun areContentsTheSame(oldItem: ItemInfo, newItem: ItemInfo): Boolean {
+        return oldItem == newItem
+    }
+}
 
-data class ItemDTO(
-    val id: Int,
-    val userEmail: String,
-    val name: String? = null,
-    val description: String? = null,
-    val status: String? = null,
-//    val images: List<String>? = null,
-)

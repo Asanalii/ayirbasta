@@ -10,6 +10,7 @@ import com.example.ayirbasta.data.network.MainApi
 import com.example.ayirbasta.data.network.MainApiError
 import com.example.ayirbasta.pages.login.api.SignInResponse
 import com.example.ayirbasta.data.network.SignUpResponse
+import com.example.ayirbasta.pages.item.api.ItemByIdResponse
 import com.example.ayirbasta.pages.item.api.ItemsOfUserResponse
 import com.example.ayirbasta.pages.registration.api.SignUpParam
 import com.google.gson.Gson
@@ -27,8 +28,10 @@ interface MainRepository {
     suspend fun getHealthcheck(): HealthcheckResponse?
 
     suspend fun getItemsOfUser(): ItemsOfUserResponse?
-    suspend fun signIn(body: SignInParam): SignInResponse?
 
+    suspend fun getItemById(id: Int): ItemByIdResponse?
+
+    suspend fun signIn(body: SignInParam): SignInResponse?
     suspend fun signUp(body: SignUpParam): SignUpResponse?
     suspend fun createItem(body: CreateItemParam): CreateItemResponse?
 }
@@ -71,6 +74,8 @@ class MainRepositoryImpl @Inject constructor(
             MultipartBody.Part.createFormData("images", UUID.randomUUID().toString(), requestFile)
 
         val response = api.createItem(
+            getAuthHeader(),
+
             requestImagesBody,
             body.name.toRequestBody("name".toMediaTypeOrNull()),
             body.description.toRequestBody("description".toMediaTypeOrNull())
@@ -82,6 +87,13 @@ class MainRepositoryImpl @Inject constructor(
 
     override suspend fun getItemsOfUser(): ItemsOfUserResponse? {
         val response = api.getItemsOfUser(getAuthHeader())
+
+        if (response.isSuccessful) return response.body()
+        else throw Exception(response.errorBody().getErrorMessage())
+    }
+
+    override suspend fun getItemById(id: Int): ItemByIdResponse? {
+        val response = api.getItemById(id)
 
         if (response.isSuccessful) return response.body()
         else throw Exception(response.errorBody().getErrorMessage())

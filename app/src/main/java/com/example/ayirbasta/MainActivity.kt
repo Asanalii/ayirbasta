@@ -16,7 +16,8 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
-    @Inject lateinit var preferences: SharedPreferencesUtils
+    @Inject
+    lateinit var preferences: SharedPreferencesUtils
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,19 +30,16 @@ class MainActivity : AppCompatActivity() {
 
         val accessToken = preferences.getToken(Preferences.ACCESS_TOKEN)
         if (accessToken.isEmpty()) {
-            // No access token found, user is not logged in
 
             navController.navigate(R.id.welcomeFragment)
         } else {
-            // Access token found, user is logged in
-            // Proceed with showing MainActivity content
 
             navController.navigate(R.id.itemFragment)
         }
 
 
 
-        navController.addOnDestinationChangedListener{ _, destination, _ ->
+        navController.addOnDestinationChangedListener { _, destination, _ ->
 
             val isBottomNavigationVisible = destination.isBottomNavVisible()
 
