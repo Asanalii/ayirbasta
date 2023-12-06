@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:backgroundTint="@color/primary_color"
-            android:text="See your item"
+            android:text="See item"
             android:textColor="@color/white"
             style="@style/H_11"/>
 

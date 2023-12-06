@@ -10,6 +10,8 @@ import com.example.ayirbasta.data.network.MainApi
 import com.example.ayirbasta.data.network.MainApiError
 import com.example.ayirbasta.pages.login.api.SignInResponse
 import com.example.ayirbasta.data.network.SignUpResponse
+import com.example.ayirbasta.pages.home.api.AvailableTradesResponse
+import com.example.ayirbasta.pages.item.api.AllItemsResponse
 import com.example.ayirbasta.pages.item.api.ItemByIdResponse
 import com.example.ayirbasta.pages.item.api.ItemsOfUserResponse
 import com.example.ayirbasta.pages.registration.api.SignUpParam
@@ -26,14 +28,15 @@ import javax.inject.Singleton
 @Singleton
 interface MainRepository {
     suspend fun getHealthcheck(): HealthcheckResponse?
-
     suspend fun getItemsOfUser(): ItemsOfUserResponse?
-
     suspend fun getItemById(id: Int): ItemByIdResponse?
+    suspend fun getAvailableTrades(): AvailableTradesResponse?
 
+    suspend fun getAllItems(): AllItemsResponse?
     suspend fun signIn(body: SignInParam): SignInResponse?
     suspend fun signUp(body: SignUpParam): SignUpResponse?
     suspend fun createItem(body: CreateItemParam): CreateItemResponse?
+
 }
 
 class MainRepositoryImpl @Inject constructor(
@@ -43,6 +46,36 @@ class MainRepositoryImpl @Inject constructor(
     override suspend fun getHealthcheck(): HealthcheckResponse? {
         val response = api.getHealthcheck()
 
+
+        if (response.isSuccessful) return response.body()
+        else throw Exception(response.errorBody().getErrorMessage())
+    }
+
+    override suspend fun getAllItems(): AllItemsResponse? {
+        val response = api.getAllItems()
+
+
+        if (response.isSuccessful) return response.body()
+        else throw Exception(response.errorBody().getErrorMessage())
+    }
+
+
+    override suspend fun getItemsOfUser(): ItemsOfUserResponse? {
+        val response = api.getItemsOfUser(getAuthHeader())
+
+        if (response.isSuccessful) return response.body()
+        else throw Exception(response.errorBody().getErrorMessage())
+    }
+
+    override suspend fun getAvailableTrades(): AvailableTradesResponse? {
+        val response = api.getAvailableTrades(getAuthHeader())
+
+        if (response.isSuccessful) return response.body()
+        else throw Exception(response.errorBody().getErrorMessage())
+    }
+
+    override suspend fun getItemById(id: Int): ItemByIdResponse? {
+        val response = api.getItemById(id)
 
         if (response.isSuccessful) return response.body()
         else throw Exception(response.errorBody().getErrorMessage())
@@ -80,20 +113,6 @@ class MainRepositoryImpl @Inject constructor(
             body.name.toRequestBody("name".toMediaTypeOrNull()),
             body.description.toRequestBody("description".toMediaTypeOrNull())
         )
-
-        if (response.isSuccessful) return response.body()
-        else throw Exception(response.errorBody().getErrorMessage())
-    }
-
-    override suspend fun getItemsOfUser(): ItemsOfUserResponse? {
-        val response = api.getItemsOfUser(getAuthHeader())
-
-        if (response.isSuccessful) return response.body()
-        else throw Exception(response.errorBody().getErrorMessage())
-    }
-
-    override suspend fun getItemById(id: Int): ItemByIdResponse? {
-        val response = api.getItemById(id)
 
         if (response.isSuccessful) return response.body()
         else throw Exception(response.errorBody().getErrorMessage())

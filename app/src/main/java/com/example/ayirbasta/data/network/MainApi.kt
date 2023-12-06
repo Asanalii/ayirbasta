@@ -2,6 +2,8 @@ package com.example.ayirbasta.data.network
 
 import com.example.ayirbasta.data.DTO.CreateItemParam
 import com.example.ayirbasta.data.DTO.SignInParam
+import com.example.ayirbasta.pages.home.api.AvailableTradesResponse
+import com.example.ayirbasta.pages.item.api.AllItemsResponse
 import com.example.ayirbasta.pages.item.api.ItemByIdResponse
 import com.example.ayirbasta.pages.item.api.ItemsOfUserResponse
 import com.example.ayirbasta.pages.login.api.SignInResponse
@@ -21,11 +23,17 @@ interface MainApi {
     @GET("healthcheck")
     suspend fun getHealthcheck(): Response<HealthcheckResponse>
 
+    @GET("items")
+    suspend fun getAllItems(): Response<AllItemsResponse>
+
     @GET("item/{id}")
     suspend fun getItemById(@Path("id") id: Int): Response<ItemByIdResponse>
 
     @GET("user/items")
     suspend fun getItemsOfUser(@Header("Authorization") authHeader: String): Response<ItemsOfUserResponse>
+
+    @GET("user/trades")
+    suspend fun getAvailableTrades(@Header("Authorization") authHeader: String): Response<AvailableTradesResponse>
 
     @POST("users/sign-in")
     suspend fun signIn(@Body request: SignInParam): Response<SignInResponse>

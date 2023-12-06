@@ -21,11 +21,13 @@ import com.example.ayirbasta.pages.item.api.ItemsOfUserResponse
 class ItemAdapter : ListAdapter<ItemInfo, BaseItemViewHolder<*>>(ItemDiffUtils) {
     var itemClick: ((ItemInfo, FragmentNavigator.Extras) -> Unit)? = null
 
+    var tradeClick: ((ItemInfo) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseItemViewHolder<*> {
         return ItemListViewHolder(
             ItemItemBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
-            ), itemClick
+            ), itemClick, tradeClick
         )
     }
 
@@ -36,12 +38,15 @@ class ItemAdapter : ListAdapter<ItemInfo, BaseItemViewHolder<*>>(ItemDiffUtils) 
     class ItemListViewHolder(
         override val binding: ItemItemBinding,
         private val itemClick: ((ItemInfo, FragmentNavigator.Extras) -> Unit)?,
+        private val tradeClick: ((ItemInfo) -> Unit)?
     ) : BaseItemViewHolder<ItemItemBinding>(binding) {
 
         override fun bindView(item: ItemInfo) {
             binding.title.text = item.description
 
             binding.title.transitionName = item.name.toString()
+
+
 
             val decodedImage = base64toPic(item.images.toString())
             binding.image.setImageBitmap(decodedImage)

@@ -90,4 +90,24 @@
         android:label="ItemAddFragment" />
 
 
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.ayirbasta.pages.home.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_actionItemFragment"
+            app:destination="@id/actionItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/actionItemFragment"
+        android:name="com.example.ayirbasta.pages.home.ActionItemFragment"
+        android:label="ActionItemFragment">
+
+        <argument
+            android:name="id"
+            app:argType="integer" />
+
+    </fragment>
+
+
 </navigation>

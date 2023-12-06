@@ -157,7 +157,7 @@
             android:layout_height="match_parent"
             android:hint="Input your item's name"
             android:imeOptions="actionNext"
-            android:inputType="phone" />
+            android:inputType="textCapSentences" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -193,7 +193,7 @@
             android:layout_height="match_parent"
             android:hint="Tell us abour your item."
             android:imeOptions="actionNext"
-            android:inputType="phone" />
+            android:inputType="textCapSentences" />
     </com.google.android.material.textfield.TextInputLayout>
 
 

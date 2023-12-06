@@ -22,7 +22,6 @@ class ItemListViewModel @Inject constructor(
                 getItems.execute()
             },
             onSuccess = {
-                Log.d("<<<","LiveData: $it")
                 _getItemsLiveData.postValue(it)
             }
         )
