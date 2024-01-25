@@ -1,4 +1,4 @@
-package com.example.ayirbasta.pages.home.api
+package com.example.ayirbasta.pages.trades.api
 
 import com.example.ayirbasta.data.network.ItemInfo
 import com.example.ayirbasta.pages.trades.api.TradeInfo

@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.app_study_hilt.data.preferences.Preferences
 import com.example.app_study_hilt.data.preferences.SharedPreferencesUtils
 import com.example.ayirbasta.databinding.ActivityMainBinding
@@ -13,6 +14,7 @@ import com.example.ayirbasta.pages.WelcomeFragment
 import com.example.ayirbasta.pages.home.HomeFragment
 import com.example.ayirbasta.pages.item.ItemFragment
 import com.example.ayirbasta.pages.trades.TradesFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -38,27 +40,30 @@ class MainActivity : AppCompatActivity() {
             navController.navigate(R.id.welcomeFragment)
         } else {
 
-            navController.navigate(R.id.homeFragment)
+            navController.navigate(R.id.itemFragment)
         }
 
 
-        binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
-            // Determine which fragment to show based on the clicked item
-            val selectedFragment: Fragment = when (item.itemId) {
-                R.id.homeFragment -> HomeFragment()
-                R.id.itemFragment -> ItemFragment()
-                R.id.tradesFragment -> TradesFragment()
-                // Add more cases for other menu items
-                else -> return@setOnNavigationItemSelectedListener false
-            }
+//        binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
+//            // Determine which fragment to show based on the clicked item
+//            val selectedFragment: Fragment = when (item.itemId) {
+//                R.id.homeFragment -> HomeFragment()
+//                R.id.itemFragment -> ItemFragment()
+//                R.id.tradesFragment -> TradesFragment()
+//                // Add more cases for other menu items
+//                else -> return@setOnNavigationItemSelectedListener false
+//            }
+//
+//            // Begin a transaction to replace the current fragment
+//            supportFragmentManager.beginTransaction()
+//                .replace(R.id.nav_host_fragment, selectedFragment) // Replace 'R.id.fragment_container' with your actual container ID
+//                .commit()
+//
+//            true // Return true to indicate the click event was handled
+//        }
 
-            // Begin a transaction to replace the current fragment
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment, selectedFragment) // Replace 'R.id.fragment_container' with your actual container ID
-                .commit()
-
-            true // Return true to indicate the click event was handled
-        }
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigationView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
 

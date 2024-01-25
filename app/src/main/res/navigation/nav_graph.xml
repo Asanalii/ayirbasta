@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/welcomeFragment">
+    app:startDestination="@id/itemFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -13,17 +13,6 @@
             app:destination="@id/itemFragment" />
     </fragment>
 
-    <fragment
-        android:id="@+id/itemFragment"
-        android:name="com.example.ayirbasta.pages.item.ItemFragment"
-        android:label="ItemFragment">
-        <action
-            android:id="@+id/action_itemFragment_to_previewItemFragment"
-            app:destination="@id/previewItemFragment" />
-        <action
-            android:id="@+id/action_itemFragment_to_itemAddFragment"
-            app:destination="@id/itemAddFragment" />
-    </fragment>
 
     <fragment
         android:id="@+id/previewItemFragment"
@@ -37,6 +26,7 @@
         <action
             android:id="@+id/action_previewItemFragment_to_editItemFragment"
             app:destination="@id/editItemFragment" />
+
     </fragment>
 
 
@@ -72,6 +62,20 @@
     </fragment>
 
     <fragment
+        android:id="@+id/itemFragment"
+        android:name="com.example.ayirbasta.pages.item.ItemFragment"
+        android:label="ItemFragment">
+
+        <action
+            android:id="@+id/action_itemFragment_to_itemAddFragment"
+            app:destination="@id/itemAddFragment" />
+
+        <action
+            android:id="@+id/action_itemFragment_to_previewItemFragment"
+            app:destination="@id/previewItemFragment" />
+    </fragment>
+
+    <fragment
         android:id="@+id/editItemFragment"
         android:name="com.example.ayirbasta.pages.item.edit.EditItemFragment"
         android:label="EditItemFragment">
@@ -84,6 +88,7 @@
             android:id="@+id/action_editItemFragment_to_previewItemFragment"
             app:destination="@id/previewItemFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/itemAddFragment"
         android:name="com.example.ayirbasta.pages.item.adding.ItemAddFragment"
@@ -93,7 +98,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.ayirbasta.pages.home.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="HomeFragment">
         <action
             android:id="@+id/action_homeFragment_to_actionItemFragment"
             app:destination="@id/actionItemFragment" />
@@ -106,6 +111,9 @@
         <argument
             android:name="id"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_actionItemFragment_to_tradesFragment"
+            app:destination="@id/tradesFragment" />
 
     </fragment>
 

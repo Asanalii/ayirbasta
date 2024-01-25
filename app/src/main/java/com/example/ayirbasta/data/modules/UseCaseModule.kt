@@ -5,8 +5,8 @@ import com.example.ayirbasta.data.use_cases.CreateItemInteraction
 import com.example.ayirbasta.data.use_cases.CreateItemUseCase
 import com.example.ayirbasta.data.use_cases.GetHealthcheckInteraction
 import com.example.ayirbasta.data.use_cases.GetHealthcheckUseCase
-import com.example.ayirbasta.pages.home.api.GetAvailableTradesInteraction
-import com.example.ayirbasta.pages.home.api.GetAvailableTradesUseCase
+import com.example.ayirbasta.pages.trades.api.GetAvailableTradesInteraction
+import com.example.ayirbasta.pages.trades.api.GetAvailableTradesUseCase
 import com.example.ayirbasta.pages.item.api.GetAllItemsInteraction
 import com.example.ayirbasta.pages.item.api.GetAllItemsUseCase
 import com.example.ayirbasta.pages.item.api.GetItemByIdInteraction
@@ -17,6 +17,8 @@ import com.example.ayirbasta.pages.login.api.SignInInteraction
 import com.example.ayirbasta.pages.login.api.SignInUseCase
 import com.example.ayirbasta.pages.registration.api.SignUpInteraction
 import com.example.ayirbasta.pages.registration.api.SignUpUseCase
+import com.example.ayirbasta.pages.trades.api.CreateTradeInteraction
+import com.example.ayirbasta.pages.trades.api.CreateTradeUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,10 +35,6 @@ object UseCaseModule {
     @Provides
     fun provideSignIn(repo: MainRepository): SignInUseCase =
         SignInInteraction(repo)
-
-    @Provides
-    fun createItem(repo: MainRepository): CreateItemUseCase =
-        CreateItemInteraction(repo)
 
     @Provides
     fun provideSignUp(repo: MainRepository): SignUpUseCase =
@@ -58,5 +56,12 @@ object UseCaseModule {
     fun provideGetAllItems(repo: MainRepository): GetAllItemsUseCase =
         GetAllItemsInteraction(repo)
 
+    @Provides
+    fun createItem(repo: MainRepository): CreateItemUseCase =
+        CreateItemInteraction(repo)
+
+    @Provides
+    fun createTrade(repo: MainRepository): CreateTradeUseCase =
+        CreateTradeInteraction(repo)
 
 }

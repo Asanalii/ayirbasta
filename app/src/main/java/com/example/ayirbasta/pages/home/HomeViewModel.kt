@@ -1,10 +1,9 @@
 package com.example.ayirbasta.pages.home
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.ayirbasta.base.BaseViewModel
-import com.example.ayirbasta.pages.home.api.AvailableTradesResponse
-import com.example.ayirbasta.pages.home.api.GetAvailableTradesUseCase
+import com.example.ayirbasta.pages.trades.api.AvailableTradesResponse
+import com.example.ayirbasta.pages.trades.api.GetAvailableTradesUseCase
 import com.example.ayirbasta.pages.item.api.AllItemsResponse
 import com.example.ayirbasta.pages.item.api.GetAllItemsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel

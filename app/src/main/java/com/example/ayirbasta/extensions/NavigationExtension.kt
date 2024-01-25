@@ -8,7 +8,7 @@ fun NavDestination.isBottomNavVisible(): Boolean {
     return when (this.getCurrentScreen()) {
         NavigationFragmentLists.HOME,
         NavigationFragmentLists.ITEM_LIST,
-        NavigationFragmentLists.PROFILE -> true
+        NavigationFragmentLists.TRADE -> true
 
         else -> false
     }

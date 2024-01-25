@@ -18,10 +18,10 @@ import javax.inject.Singleton
 object NetworkModule {
     @Provides
     //work
-    fun mainUrl() = "http://192.168.142.210:8080/v1/"
+//    fun mainUrl() = "http://192.168.142.210:8080/v1/"
 
     //home
-//    fun mainUrl() = "http://192.168.0.12:8080/v1/"
+    fun mainUrl() = "http://192.168.0.12:8080/v1/"
 //    fun mainUrl() = "http://10.0.2.2:8080/v1/"
 
 

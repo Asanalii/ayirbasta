@@ -1,13 +1,14 @@
 package com.example.ayirbasta.data.network
 
-import com.example.ayirbasta.data.DTO.CreateItemParam
 import com.example.ayirbasta.data.DTO.SignInParam
-import com.example.ayirbasta.pages.home.api.AvailableTradesResponse
+import com.example.ayirbasta.pages.trades.api.AvailableTradesResponse
 import com.example.ayirbasta.pages.item.api.AllItemsResponse
 import com.example.ayirbasta.pages.item.api.ItemByIdResponse
 import com.example.ayirbasta.pages.item.api.ItemsOfUserResponse
 import com.example.ayirbasta.pages.login.api.SignInResponse
 import com.example.ayirbasta.pages.registration.api.SignUpParam
+import com.example.ayirbasta.pages.trades.api.CreateTradeParam
+import com.example.ayirbasta.pages.trades.api.CreateTradeResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Response
@@ -41,6 +42,8 @@ interface MainApi {
     @POST("users/sign-up")
     suspend fun signUp(@Body request: SignUpParam): Response<SignUpResponse>
 
+    @POST("trades")
+    suspend fun createTrade(@Body request: CreateTradeParam): Response<CreateTradeResponse>
 
     @Multipart
     @POST("items")

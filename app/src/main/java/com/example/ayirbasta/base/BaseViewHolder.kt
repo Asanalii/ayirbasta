@@ -4,8 +4,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.example.ayirbasta.data.network.ItemInfo
 
-import com.example.ayirbasta.pages.item.api.ItemsOfUserResponse
-import com.example.ayirbasta.pages.trades.TradesDTO
 import com.example.ayirbasta.pages.trades.api.TradeInfo
 
 abstract class BaseViewHolder<VB : ViewBinding, T>(protected open val binding: VB) :

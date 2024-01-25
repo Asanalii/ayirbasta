@@ -25,6 +25,7 @@ import com.example.ayirbasta.pages.item.api.ItemsOfUserResponse
 import com.example.ayirbasta.pages.item.preview.PreviewItemFragmentArgs
 import com.example.ayirbasta.pages.item.preview.PreviewItemFragmentDirections
 import com.example.ayirbasta.pages.item.preview.PreviewItemVpFragment
+import com.example.ayirbasta.pages.trades.TradesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,6 +36,7 @@ class ActionItemFragment : Fragment() {
 
     private val viewModelGetItem: ItemByIdViewModel by viewModels()
     private val viewModelAllUserItems: ItemListViewModel by viewModels()
+    private val viewModelTrades: TradesViewModel by viewModels()
 
 
 
@@ -69,7 +71,8 @@ class ActionItemFragment : Fragment() {
             binding.itemDescription.text = it.item?.description
 
             pics = base64toPic(it.item?.images.toString())
-            picsList.add(PreviewItemVpFragment(pics))
+            binding.pic.setImageBitmap(pics)
+//            picsList.add(PreviewItemVpFragment(pics))
 
         }
 
@@ -89,6 +92,15 @@ class ActionItemFragment : Fragment() {
 
         adapter.tradeClick = { trade ->
             // receiver это args.id
+
+            viewModelTrades.createTrade(trade.id,args.id)
+            viewModelTrades.createTradeLiveData.observe(viewLifecycleOwner){
+                if(it.trade?.status == "waiting_action"){
+                    findNavController().navigate(
+                        ActionItemFragmentDirections.actionActionItemFragmentToTradesFragment()
+                    )
+                }
+            }
 
             // giver это trade.id
         }

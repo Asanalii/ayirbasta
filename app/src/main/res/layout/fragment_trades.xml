@@ -57,7 +57,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/trades_list"
         tools:itemCount="2"
-        tools:listitem="@layout/item_item"
+        tools:listitem="@layout/item_trade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />

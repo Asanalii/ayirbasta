@@ -3,16 +3,18 @@ package com.example.ayirbasta.pages.trades
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.fragment.FragmentNavigator
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ayirbasta.base.BaseTradesViewHolder
 import com.example.ayirbasta.base.BaseViewHolder
+import com.example.ayirbasta.data.network.ItemInfo
 import com.example.ayirbasta.databinding.ItemItemBinding
 import com.example.ayirbasta.databinding.ItemTradeBinding
+import com.example.ayirbasta.pages.trades.api.TradeInfo
 
-class TradesAdapter(
-    private val trades: List<TradesDTO>
-) : RecyclerView.Adapter<BaseTradesViewHolder<*>>() {
-    var itemClick: ((TradesDTO, FragmentNavigator.Extras) -> Unit)? = null
+class TradesAdapter: ListAdapter<TradeInfo,BaseTradesViewHolder<*>>(TradeDiffUtils) {
+    var itemClick: ((TradeInfo, FragmentNavigator.Extras) -> Unit)? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseTradesViewHolder<*> {
         return TradesListViewHolder(
             ItemTradeBinding.inflate(
@@ -21,44 +23,34 @@ class TradesAdapter(
         )
     }
 
-    override fun getItemCount(): Int = trades.size
 
     override fun onBindViewHolder(holder: BaseTradesViewHolder<*>, position: Int) {
-        holder.bindView(trades[position])
+        holder.bindView(getItem(position))
     }
 
     class TradesListViewHolder(
         override val binding: ItemTradeBinding,
-        private val itemClick: ((TradesDTO, FragmentNavigator.Extras) -> Unit)?,
+        private val itemClick: ((TradeInfo, FragmentNavigator.Extras) -> Unit)?,
     ) : BaseTradesViewHolder<ItemTradeBinding>(binding) {
 
-        override fun bindView(trades: TradesDTO) {
+        override fun bindView(trades: TradeInfo) {
 
-//            binding.image.setImageResource(item.images.get(0))
-            binding.title.text = trades.name
+//            binding.title.text = trades.name
 
-            /* binding.image.transitionName = item.id.toString()
-            binding.title.transitionName = item.name + item.id.toString()
-
-            val extras = FragmentNavigatorExtras(
-                binding.image to "actionImage",
-                binding.title to "actionTitle"
-            )
-
-            binding.image.setOnClickListener {
-                itemClick?.invoke(item,extras)
-            } */
 
         }
 
     }
 }
 
-data class TradesDTO(
-    val id: Int,
-    val userEmail: String,
-    val name: String? = null,
-    val description: String? = null,
-    val status: String? = null,
-//    val images: List<String>? = null,
-)
+object TradeDiffUtils : DiffUtil.ItemCallback<TradeInfo>() {
+    override fun areItemsTheSame(oldItem: TradeInfo, newItem: TradeInfo): Boolean {
+        return oldItem.id == newItem.id
+    }
+
+    override fun areContentsTheSame(oldItem: TradeInfo, newItem: TradeInfo): Boolean {
+        return oldItem == newItem
+    }
+}
+
+

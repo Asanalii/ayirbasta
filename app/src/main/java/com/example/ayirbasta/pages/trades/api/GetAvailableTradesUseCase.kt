@@ -1,8 +1,6 @@
-package com.example.ayirbasta.pages.home.api
+package com.example.ayirbasta.pages.trades.api
 
 import com.example.ayirbasta.data.repositories.MainRepository
-import com.example.ayirbasta.pages.item.api.GetItemOfUserUseCase
-import com.example.ayirbasta.pages.item.api.ItemsOfUserResponse
 
 interface GetAvailableTradesUseCase {
     suspend fun execute(): AvailableTradesResponse?

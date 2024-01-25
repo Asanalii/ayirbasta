@@ -5,6 +5,6 @@ enum class NavigationFragmentLists(
 ) {
     HOME("HomeFragment"),
     ITEM_LIST("ItemFragment"),
-    PROFILE("ProfileFragment"),
+    TRADE("TradesFragment"),
     UNKNOWN("")
 }

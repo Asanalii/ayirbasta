@@ -1,7 +1,6 @@
 package com.example.ayirbasta.pages.item
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -54,10 +53,9 @@ class ItemFragment : Fragment() {
             }
 
             adapter.submitList(itemInfos)
-
         }
 
-        binding.addItem.setOnClickListener {
+        binding.addUserItem.setOnClickListener {
             findNavController().navigate(
                 ItemFragmentDirections.actionItemFragmentToItemAddFragment()
             )

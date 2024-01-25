@@ -42,7 +42,7 @@ class ItemAdapter : ListAdapter<ItemInfo, BaseItemViewHolder<*>>(ItemDiffUtils) 
     ) : BaseItemViewHolder<ItemItemBinding>(binding) {
 
         override fun bindView(item: ItemInfo) {
-            binding.title.text = item.description
+            binding.title.text = item.name
 
             binding.title.transitionName = item.name.toString()
 

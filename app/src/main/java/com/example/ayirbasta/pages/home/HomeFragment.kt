@@ -1,7 +1,6 @@
 package com.example.ayirbasta.pages.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ayirbasta.data.network.ItemInfo
 import com.example.ayirbasta.databinding.FragmentHomeBinding
-import com.example.ayirbasta.pages.home.api.AvailableTradesResponse
+import com.example.ayirbasta.pages.trades.api.AvailableTradesResponse
 import com.example.ayirbasta.pages.item.api.AllItemsResponse
 import com.example.ayirbasta.pages.trades.api.TradeInfo
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,13 +42,13 @@ class HomeFragment : Fragment() {
         var adapterItems = HomeItemsAdapter()
 
         binding.listAvailableTrades.adapter = adapterTrades
-        binding.listAvailableTrades.layoutManager = LinearLayoutManager(requireContext())
+        binding.listAvailableTrades.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 //            GridLayoutManager(requireContext(), 3, GridLayoutManager.VERTICAL, false)
 //        binding.listAvailableItems.addItemDecoration(OffsetDecoration(3, 1, 0, 10))
 
         binding.listAvailableItems.adapter = adapterItems
         binding.listAvailableItems.layoutManager =
-            GridLayoutManager(requireContext(), 3, GridLayoutManager.VERTICAL, false)
+            GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
 
         viewModel.getTrades()
         viewModel.getNewTradesLiveData.observe(viewLifecycleOwner) { trades ->

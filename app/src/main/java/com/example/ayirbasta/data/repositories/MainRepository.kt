@@ -10,11 +10,13 @@ import com.example.ayirbasta.data.network.MainApi
 import com.example.ayirbasta.data.network.MainApiError
 import com.example.ayirbasta.pages.login.api.SignInResponse
 import com.example.ayirbasta.data.network.SignUpResponse
-import com.example.ayirbasta.pages.home.api.AvailableTradesResponse
+import com.example.ayirbasta.pages.trades.api.AvailableTradesResponse
 import com.example.ayirbasta.pages.item.api.AllItemsResponse
 import com.example.ayirbasta.pages.item.api.ItemByIdResponse
 import com.example.ayirbasta.pages.item.api.ItemsOfUserResponse
 import com.example.ayirbasta.pages.registration.api.SignUpParam
+import com.example.ayirbasta.pages.trades.api.CreateTradeParam
+import com.example.ayirbasta.pages.trades.api.CreateTradeResponse
 import com.google.gson.Gson
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -28,10 +30,14 @@ import javax.inject.Singleton
 @Singleton
 interface MainRepository {
     suspend fun getHealthcheck(): HealthcheckResponse?
+
+    //items
     suspend fun getItemsOfUser(): ItemsOfUserResponse?
     suspend fun getItemById(id: Int): ItemByIdResponse?
-    suspend fun getAvailableTrades(): AvailableTradesResponse?
 
+    //trades
+    suspend fun getAvailableTrades(): AvailableTradesResponse?
+    suspend fun createTrade(body: CreateTradeParam): CreateTradeResponse?
     suspend fun getAllItems(): AllItemsResponse?
     suspend fun signIn(body: SignInParam): SignInResponse?
     suspend fun signUp(body: SignUpParam): SignUpResponse?
@@ -91,6 +97,13 @@ class MainRepositoryImpl @Inject constructor(
 
     override suspend fun signIn(body: SignInParam): SignInResponse? {
         val response = api.signIn(body)
+
+        if (response.isSuccessful) return response.body()
+        else throw Exception(response.errorBody().getErrorMessage())
+    }
+
+    override suspend fun createTrade(body: CreateTradeParam): CreateTradeResponse? {
+        val response = api.createTrade(body)
 
         if (response.isSuccessful) return response.body()
         else throw Exception(response.errorBody().getErrorMessage())
